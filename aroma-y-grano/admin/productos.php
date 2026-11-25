@@ -53,6 +53,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+//ACTUALIZAR PRODUCTOS
+if (isset($_GET['actualizar'])){
+    $id_actualizar = 
+}
+
 // ELIMINAR PRODUCTO
 if (isset($_GET['eliminar'])) {
     $id_eliminar = limpiar_dato($_GET['eliminar']);
@@ -162,6 +167,7 @@ $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td style="padding: 0.8rem;"><?php echo htmlspecialchars($p['origen']); ?></td>
                         <td style="padding: 0.8rem;"><?php echo $p['stock']; ?></td>
                         <td style="padding: 0.8rem;">
+                            <button>Editar</button>
                             <a href="productos.php?eliminar=<?php echo $p['id']; ?>" onclick="return confirm('¿Estás seguro de eliminar este producto?');" style="color: #d9534f; text-decoration: none; font-weight: bold;">Eliminar</a>
                         </td>
                     </tr>
